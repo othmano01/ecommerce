@@ -19,14 +19,14 @@ use Monolog\Logger;
  * @author Nick Otter
  * @author Jordi Boggiano <j.boggiano@seld.be>
  */
-class GitProcessor
+class GitProcessor implements ProcessorInterface
 {
     private $level;
     private static $cache;
 
     public function __construct($level = Logger::DEBUG)
     {
-        $this->level = $level;
+        $this->level = Logger::toMonologLevel($level);
     }
 
     /**
